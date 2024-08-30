@@ -6,6 +6,8 @@
 .pnp.js
 .yarn/install-state.gz
 
+.react-email/
+
 # testing
 /coverage
 
@@ -27,7 +29,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
-
+.env
 # vercel
 .vercel
 
