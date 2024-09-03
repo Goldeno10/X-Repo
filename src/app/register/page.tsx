@@ -32,7 +32,7 @@ const RegisterPage = () => {
       }
 
       // Redirect to login page on successful registration
-      router.push("/login");
+      router.push("/api/auth/signin");
     } catch (error: any) {
       setErrors(error.message);
       setLoading(false);

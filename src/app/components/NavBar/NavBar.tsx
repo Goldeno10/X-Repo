@@ -49,9 +49,14 @@ const NavBar = () => {
             </button>
           </>
         ) : (
-          <button onClick={() => signIn()} className="hover:text-gray-300">
-            Sign In
-          </button>
+          <>
+            <button onClick={() => signIn()} className="hover:text-gray-300">
+              Sign In
+            </button>
+            <Link href="/register" className="hover:text-gray-300">
+              Sign Up
+            </Link>
+          </>
         )}
       </div>
 
@@ -106,12 +111,17 @@ const NavBar = () => {
               </button>
             </>
           ) : (
-            <button
-              onClick={() => signIn()}
-              className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full transition duration-300"
-            >
-              Sign In
-            </button>
+            <>
+              <button
+                onClick={() => signIn()}
+                className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full transition duration-300"
+              >
+                Sign In
+              </button>
+              <Link href="/register" className="hover:text-gray-300">
+                Sign Up
+              </Link>
+            </>
           )}
         </div>
       )}
