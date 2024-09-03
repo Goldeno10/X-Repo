@@ -44,14 +44,16 @@ model Session {
 }
 
 model User {
-  id             String    @id @default(cuid())
+  id             String     @id @default(cuid())
   name           String?
-  email          String?   @unique
-  hashedPassword String?   @map("hashed_password")
-  emailVerified  DateTime? @map("email_verified")
+  email          String?    @unique
+  hashedPassword String?    @map("hashed_password")
+  emailVerified  DateTime?  @map("email_verified")
   image          String?
   accounts       Account[]
   sessions       Session[]
+  materials      Material[] // One-to-many relation to Material
+  comments       Comment[] // One-to-many relation to Comment
 
   @@map("users")
 }
@@ -63,4 +65,27 @@ model VerificationToken {
 
   @@unique([identifier, token])
   @@map("verificationtokens")
+}
+
+model Material {
+  id         String    @id @default(cuid())
+  name       String
+  type       String
+  size       String?
+  uploadDate DateTime  @default(now())
+  uploaderId String // Reference to User
+  uploader   User      @relation(fields: [uploaderId], references: [email])
+  fileUrl    String    @map("file_url")
+  category   String
+  comments   Comment[] // One-to-many relation to Comment
+}
+
+model Comment {
+  id          String   @id @default(cuid())
+  content     String
+  commentDate DateTime @default(now())
+  materialId  String // Reference to Material
+  material    Material @relation(fields: [materialId], references: [id])
+  userId      String // Reference to User
+  user        User     @relation(fields: [userId], references: [email])
 }

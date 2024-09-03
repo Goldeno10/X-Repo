@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-items: space-between;
+    height: 70vh;
+    background-color: grey;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+.card {
+    height: 100%;
+    width: 500px;
+    background-color: aqua;
+    margin: 20px;
+    padding: 20px;
+    justify-content: center;
+    align-content: center;
+}
+
+.h1{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.p

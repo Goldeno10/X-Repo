@@ -5,6 +5,26 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import prisma from "../prisma/client";
 
+interface Session {
+  accessToken?: string;
+  user: {
+    id: string;
+  };
+}
+
+interface Token {
+  accessToken: string;
+  id: string;
+}
+
+interface Callbacks {
+  session(props: {
+    session: Session;
+    token: Token;
+    user: any;
+  }): Promise<Session>;
+}
+
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [

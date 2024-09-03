@@ -17,9 +17,10 @@ const config: Config = {
   },
   plugins: [
     require('daisyui'),
+    require('tailwind-scrollbar'),
   ],
-  // daisyui: {
-  //   themes: ["synthwave"],
-  // },
+  daisyui: {
+    themes: [ "light",  "synthwave"],
+  },
 };
 export default config;

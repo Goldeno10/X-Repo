@@ -5,6 +5,7 @@ import prisma from "../../../../prisma/client";
 
 const schema = z.object({
   email: z.string().email(),
+  name: z.string().min(3),
   password: z.string().min(5),
 });
 
@@ -32,6 +33,7 @@ export async function POST(request: NextRequest) {
   const newUser = await prisma.user.create({
     data: {
       email: body.email,
+      name: body.name,
       hashedPassword,
     },
   });
@@ -39,5 +41,5 @@ export async function POST(request: NextRequest) {
   return NextResponse.json(
     { message: "User created successfully" },
     { status: 201 }
-  ); // HTTP 201 Created
+  );
 }
