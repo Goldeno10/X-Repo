@@ -1,9 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import { signIn, useSession } from "next-auth/react";
 import React, { useState } from "react";
-import { useRouter } from "next/router";
-import Image from "next/image";
-import { useSession, signOut, signIn } from "next-auth/react";
 
 const categories = ["Computer Engineering", "Electrical Engineering"];
 const allowedTypes = [
