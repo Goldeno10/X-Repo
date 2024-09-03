@@ -61,7 +61,7 @@ const LibraryPage = () => {
   );
 
   return (
-    <div className="p-8 bg-gray-100 max-h-screen mt-8">
+    <div className="p-8 bg-gray-100 max-h-screen mt-8 pb-10">
       <h1 className="text-4xl font-bold text-gray-800 mb-8">Repository</h1>
       <div className="flex space-x-4 mb-8">
         {filterOptions.map((option) => (
@@ -87,7 +87,7 @@ const LibraryPage = () => {
       ) : filteredMaterials.length === 0 ? (
         <p className="text-center">No materials found.</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pb-10">
           {filteredMaterials.map((material) => (
             <div
               key={material.id}

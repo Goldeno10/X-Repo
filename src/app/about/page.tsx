@@ -17,7 +17,7 @@ const AboutPage = () => {
       position: "Computer Engineer",
       description:
         "Prepared the project documentation and presentation slides, and contributed to the front-end development of the application.",
-      thumbnail: "",
+      thumbnail: "/idris.png",
     },
     {
       id: 3,
