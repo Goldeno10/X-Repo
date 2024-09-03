@@ -1,5 +1,5 @@
 "use client";
-import { useFilters } from "@/app/contexts/FilterContext";
+import { useFilters } from "@/contexts/FilterContext";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import FileIcon from "../components/FileIcon";
@@ -12,9 +12,7 @@ const filterMappings: { [key: string]: string } = {
   Excel: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
   PowerPoint:
     "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-  // Image: "image/jpeg",
   Video: "video/mp4",
-  // Text: "text/plain",
 };
 
 const filterOptions = Object.keys(filterMappings);
@@ -22,8 +20,7 @@ const filterOptions = Object.keys(filterMappings);
 const LibraryPage = () => {
   const router = useRouter();
   const [filter, setFilter] = useState("all");
-  const { selectedDepartment = "" }: { selectedDepartment?: string } =
-    useFilters();
+  const { selectedDepartment } = useFilters(); // Ensure selectedDepartment is correctly used
   const [materials, setMaterials] = useState<
     { id: string; type: string; name: string; size: string; category: string }[]
   >([]);
@@ -33,6 +30,10 @@ const LibraryPage = () => {
   useEffect(() => {
     fetchMaterials();
   }, []);
+
+  useEffect(() => {
+    console.log("Current selectedDepartment:", selectedDepartment);
+  }, [selectedDepartment]);
 
   const fetchMaterials = async () => {
     setIsLoading(true);
@@ -63,7 +64,7 @@ const LibraryPage = () => {
   return (
     <div className="p-8 bg-gray-100 max-h-screen mt-8 pb-10">
       <h1 className="text-4xl font-bold text-gray-800 mb-8">Repository</h1>
-      <div className="flex space-x-4 mb-8">
+      <div className="flex space-x-4 mb-8 flex-wrap gap-2">
         {filterOptions.map((option) => (
           <FilterButton
             key={option}
@@ -92,11 +93,14 @@ const LibraryPage = () => {
             <div
               key={material.id}
               onClick={() => handleItemClick(material.id)}
-              className="bg-white p-6 rounded-lg shadow-lg flex items-center space-x-6 cursor-pointer hover:scale-105 transition-transform"
+              className="bg-white p-6 rounded-lg shadow-lg flex items-center space-x-6 cursor-pointer hover:scale-105 transition-transform h-70 flex-col w-50"
             >
-              <FileIcon type={material.type} />
-              <div className="flex-1 min-w-0">
-                <h3 className="text-base font-semibold text-gray-700 truncate">
+              <FileIcon
+                type={material.type}
+                iconStyle="text-2xl h-full w-full"
+              />
+              <div className="flex-1 min-w-0 w-full">
+                <h3 className="text-sm text-wrap font-semibold text-gray-700 truncate w-full  text-ellipsis line-clamp-2">
                   {material.name}
                 </h3>
                 <p className="text-lg text-gray-500">

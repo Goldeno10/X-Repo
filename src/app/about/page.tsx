@@ -13,7 +13,7 @@ const AboutPage = () => {
     },
     {
       id: 2,
-      name: "Idris Tosin",
+      name: "Makanjuola Idris Tosin",
       position: "Computer Engineer",
       description:
         "Prepared the project documentation and presentation slides, and contributed to the front-end development of the application.",
@@ -21,7 +21,7 @@ const AboutPage = () => {
     },
     {
       id: 3,
-      name: "Ephziba Buela",
+      name: "Kogi Hephzibah Beulah",
       position: "Cloud Engineer",
       description:
         "Prepared the project documentation and presentation slides.",
@@ -30,7 +30,7 @@ const AboutPage = () => {
     {
       id: 4,
       name: "Daniel Alayande",
-      position: "Computer Engineer",
+      position: "Project Manager",
       description:
         "Gathered the requirements and prepared the project documentation.",
       thumbnail: "/Daniel.png",

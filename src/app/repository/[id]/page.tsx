@@ -170,7 +170,7 @@ const ItemDetailPage = ({ params: { id } }: { params: { id: string } }) => {
             </>
           ) : (
             <div className="flex-row gap-10">
-              <div className="bg-gray-200 mx-auto rounded-lg overflow-hidden shadow-lg h-[75vh] flex-col w-[70vw]">
+              <div className="bg-gray-200 mx-auto rounded-lg overflow-hidden shadow-lg h-auto flex-col w-[70vw]">
                 {renderFileContent()}
               </div>
               <div className="flex flex-col justify-center pt-5">

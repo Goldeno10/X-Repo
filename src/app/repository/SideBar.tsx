@@ -1,23 +1,20 @@
 "use client";
-import { useFilters } from "@/app/contexts/FilterContext";
+import { useFilters } from "@/contexts/FilterContext";
 import { useSession } from "next-auth/react";
-import { FaUserCircle } from "react-icons/fa";
-import { useState } from "react";
-import { FaBars } from "react-icons/fa";
-
-interface FilterContextType {
-  selectedDepartment: string;
-  handleDepartmentChange: (department: string) => void;
-}
+import { FaUserCircle, FaBars } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 const Sidebar = () => {
   const { data: session } = useSession();
-  const { selectedDepartment, handleDepartmentChange } =
-    useFilters() as FilterContextType;
+  const { selectedDepartment, setSelectedDepartment } = useFilters();
 
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    console.log("selectedDepartment:", selectedDepartment);
+  }, [selectedDepartment]);
 
   return (
     <>
@@ -53,7 +50,7 @@ const Sidebar = () => {
               (department) => (
                 <li key={department}>
                   <button
-                    onClick={() => handleDepartmentChange(department)}
+                    onClick={() => setSelectedDepartment(department)}
                     className={`w-full text-left py-2 px-4 rounded ${
                       selectedDepartment === department
                         ? "bg-blue-600"
