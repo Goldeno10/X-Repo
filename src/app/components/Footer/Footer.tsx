@@ -135,11 +135,11 @@ const EnhancedFooter = () => {
               <FaPhone /> +2347013013462
             </li>
             <li className="flex items-center gap-2">
-              <FaEnvelope /> support@Study-Hub.com
+              <FaEnvelope /> ibrahimmuhammad271@gmail.com
             </li>
-            <li className="flex items-center gap-2">
+{/*             <li className="flex items-center gap-2">
               <FaMapMarkerAlt /> 1234 Study-Hub Avenue, Tech City, TX
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
