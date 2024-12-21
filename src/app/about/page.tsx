@@ -116,12 +116,12 @@ const AboutPage = () => {
           </div>
           <div className="flex items-center justify-center space-x-4 text-gray-700">
             <FaEnvelope className="w-6 h-6 text-blue-500" />
-            <span>info@xlibrary.com</span>
+            <span>ibrahimmuhammad271@gmail.com</span>
           </div>
-          <div className="flex items-center justify-center space-x-4 text-gray-700">
+{/*           <div className="flex items-center justify-center space-x-4 text-gray-700">
             <FaMapMarkerAlt className="w-6 h-6 text-blue-500" />
             <span>1234 Street Name, City, Country</span>
-          </div>
+          </div> */}
         </div>
       </section>
     </div>
